@@ -36,8 +36,10 @@ namespace SistemaFinanciero.WebApi.Repository.Managers
                     
                     return usuario;
                 }
-
-                return usuario;
+                else
+                {
+                    return null;
+                }
             }
             catch
             {
