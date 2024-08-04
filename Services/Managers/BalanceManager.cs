@@ -124,7 +124,7 @@ namespace SistemaFinanciero.WebApi.Repository.Managers
                     Cat_Id = categoria.Id,
                     Balance_Id = balance.Id,
                     UsuarioId = meta.UsuarioId,
-                    EstaActiva = true
+                    EstaActiva = !isDeleted
                 };
 
                 _context.Transacciones.Add(newTransaction);
@@ -133,7 +133,7 @@ namespace SistemaFinanciero.WebApi.Repository.Managers
                 balance.TransaccionId = newTransaction.Id;
                 _context.Entry(balance).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
-                _logger.LogInformation($"Balance actualizado. Meta: {meta.Titulo}");
+                _logger.LogInformation($"Balance actualizado: {balance.Saldo_Total} | Meta: {meta.Titulo}");
                 return balance;
             }
             catch (Exception e)
