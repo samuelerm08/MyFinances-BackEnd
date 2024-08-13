@@ -41,7 +41,7 @@ namespace MyFinances.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PagedTransactionsDTO>> ObtenerTodasUsuario([FromBody] TransactionPayloadDTO transactionPayloadDTO, [FromQuery] PaginationPayloadDTO parameters)
+        public async Task<ActionResult<PagedTransactionsDTO>> GetAllByUserId([FromBody] TransactionPayloadDTO transactionPayloadDTO, [FromQuery] PaginationPayloadDTO parameters)
         {
             PagedList<Transaction> transactions = await _transactions.GetByUserIdAsync(transactionPayloadDTO, parameters);
             bool transactionsFound = transactions.Data != null && transactions.Data.Count > 0;
