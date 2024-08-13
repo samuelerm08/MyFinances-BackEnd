@@ -8,7 +8,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using SistemaFinanciero.WebApi.Repository.Managers;
 using System;
 using System.Collections.Generic;
 using System.Text;
